@@ -1,0 +1,33 @@
+﻿@using Tatil_Seyahat_Sitesi.Models.Sınıflar
+@model List<yorumlar>
+@{
+    ViewBag.Title = "YorumListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KULLANICI</th>
+        <th>MAİL</th>
+        <th>YORUM</th>
+        <th>BLOG</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+    @foreach (var x in Model) { 
+    <tr>
+        <td>@x.id</td>
+        <td>@x.kullaniciadi</td>
+        <td>@x.mail</td>
+        <td>@x.yorum</td>
+        <td>@x.blog.baslik</td>
+        <td><a href="/Admin/YorumSil/@x.id" class="btn btn-danger">SİL</a></td>
+        <td><a href="/Admin/YorumGetir/@x.id"class="btn btn-warning">GÜNCELLE</a></td>
+
+    </tr>
+    }
+</table>

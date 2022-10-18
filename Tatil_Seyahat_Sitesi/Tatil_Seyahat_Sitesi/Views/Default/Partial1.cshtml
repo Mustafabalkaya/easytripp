@@ -1,0 +1,21 @@
+﻿@using Tatil_Seyahat_Sitesi.Models.Sınıflar
+@model List<blog>
+<div class="con-bot">
+    @foreach(var y in Model) {
+
+    <div class="left">
+        <div class="bot-left">
+            <img src="@y.BlogImage"style="width:300px;height:150px" alt="" />
+        </div>
+        <div class="left-text">
+            <h4>@y.baslik</h4>
+            <span class="doller">@y.tarih.ToString("dd/MM/yyyy")</span>
+            <p>@y.aciklama.Substring(0, 80) </p>
+            <p><a href="/blog/BlogDetay/@y.id"><span class="read">Devamını oku >></span></a></p>
+        </div>
+    </div>
+    }
+    @Html.Action("Partial2","Default")
+    @**@
+    <div class="clear"></div>
+</div>
